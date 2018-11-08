@@ -54,9 +54,11 @@ public final class RaceMediator {
                 System.out.println(String.valueOf(i+1) + ") " + scoreBoard.get(i).getName() + " - " + scoreBoard.get(i).getPos());
             }
         } else {
-            System.out.println("\nScore:");
-            for(int i = 0; i < carts.size(); i++) {
-                System.out.println(String.valueOf(i+1) + ") " + carts.get(i).getName() + " - " + carts.get(i).getPos());
+            if(carts.size() > 1) { // remove info when we have only one car left
+                System.out.println("\nScore:");
+                for(int i = 0; i < carts.size(); i++) {
+                    System.out.println(String.valueOf(i+1) + ") " + carts.get(i).getName() + " - " + carts.get(i).getPos());
+                }
             }
         }
 
