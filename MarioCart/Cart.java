@@ -1,18 +1,14 @@
 package lab.mediator.MarioCart;
 
 public class Cart {
-    private int id;
     private int pos;
     private String name;
+    private boolean finished;
 
-    public Cart(int id, String name) {
+    public Cart(String name) {
         pos = 0;
-        this.id = id;
         this.name = name;
-    }
-
-    public int getId() {
-        return id;
+        finished = false;
     }
 
     public void setPos() {
@@ -23,8 +19,20 @@ public class Cart {
         return pos;
     }
 
-    public void drive() {
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * @param index: index from "ArrayList<Cart> carts"
+     * @see RaceMediator -> startRace()
+     */
+    public void drive(int index) {
         setPos();
-        RaceMediator.updateScore(this, id);
+        RaceMediator.updateScore(this, index);
+    }
+
+    public String toString() {
+        return "name: " + this.name + " / pos: " + this.pos;
     }
 }
